@@ -61,42 +61,52 @@
         </div>
     </div>
 </div>
-
 <section>
-@foreach($categories as $key => $category)
- <div class="categories">
-     <div class="categories-title">
-         <span>{{ $category->name }}</span>
-     </div>
-     <hr class="line">
-     <div class="categories-subtitle">
-         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
-     </div>
-     <div class="categories-item container-fluid">
+    @foreach($categories as $key => $category)
+    <div class="categories">
+       <div class="categories-title">
+           <span>{{ $category->name }}</span>
+       </div>
+       <hr class="line">
+       <div class="categories-subtitle">
+           <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
+       </div>
+       <div class="categories-item container-fluid">
+        @if(!empty($category->products->where('status', 1)) && !collect($category->products->where('status', 1))->isEmpty())
         <div class="row">
+            @foreach($category->products->where('status', 1) as $product)
             <!-- Producto -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-center">
                 <div class="thumbnail">
-                    <img src="{{ asset('new/recursos/1.PNG') }}" alt="img">
+                     @if(isset($product->cover))
+                        <img src="{{ asset("storage/$product->cover") }}" alt="{{ $product->name }}" class="img-bordered img-responsive">
+                    @else
+                        <img src="https://placehold.it/263x330" alt="{{ $product->name }}" class="img-bordered img-responsive" />
+                        <!-- <img src="{{ asset('new/recursos/1.PNG') }}" alt="img"> -->
+                    @endif
                     <div class="caption">
-                        <a href="#"><span class="products-name text-white">Name products</span></a>
+                        <a href="#"><span class="products-name text-white">{{ $product->name }}</span></a>
                         <span class="products-price clearfix">121,0 $</span>
                         <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>              
                     </div>
                 </div>
             </div>    
+            @endforeach
         </div>
+        @else
+        <p class="alert alert-warning">No hay productos todavía.</p>
+        @endif
     </div>
     <div class="categories-all text-center">
-     <a class="btn-outline text-white" href="{{ route('front.category.slug', $category->slug) }}">Ver mas categorias</a>
- </div>
+       <a class="btn-outline text-white" href="{{ route('front.category.slug', $category->slug) }}">Ver mas categorias</a>
+   </div>
 </div>
 @endforeach
 
 </section>
 <section>
- <div class="slogan">
-     <div class="slogan-content text-center">
+   <div class="slogan">
+       <div class="slogan-content text-center">
         <span class="slogan-title">FRUITMARKET</span>
         <br>
         <span class="slogan-subtitle">QUALITY ASSURANCE</span>
