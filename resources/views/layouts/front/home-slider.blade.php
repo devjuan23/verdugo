@@ -1,4 +1,4 @@
-<section id="hero" class="hero-section top-area">
+{{--<section id="hero" class="hero-section top-area">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
@@ -12,4 +12,35 @@
             <div class="col-md-4"></div>
         </div>
     </div>
-</section>
+</section>--}}
+
+
+
+<div class="hero">
+    <div class="owl-carousel owl-theme" id="owl-demo">
+        <div class="item">
+            <img src="{{ asset('new/slogan.jpg') }}" alt="The Last of us">
+            <div class="slide-content">
+                <h1>Ely</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+            </div>
+        </div>
+        <div class="item">
+            <img src="{{ asset('new/slogan.jpg') }}" alt="GTA V">
+            <div class="slide-content">
+                <h1>pedro</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+            </div>
+        </div>
+        <div class="item">
+            <img src="{{ asset('new/slogan.jpg') }}" alt="Mirror Edge">
+            <div class="slide-content">
+                <h1>jose</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+
+            </div>
+        </div>
+    </div>
+</div>
