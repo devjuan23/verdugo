@@ -6,249 +6,102 @@
 @endsection
 @section('css')
 <!-- Estilos propios de esta pagina -->
-<link href="{{ asset('css/new/bootstrap.min.css') }}" rel="stylesheet">
+<!-- <link href="{{ asset('css/new/bootstrap.min.css') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/new/main.css') }}" rel="stylesheet">
 <link href="{{ asset('fonts/new/font.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 @endsection
 @section('js')
 <!-- Scripts propios de esta pagina -->
-<script src="{{ asset('js/new/bootstrap.min.js') }}"></script>
+<!-- <script src="{{ asset('js/new/bootstrap.min.js') }}"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Owl Carousel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- Custom Javascript -->
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                items:1,
+                loop:true,
+                nav:true,
+                dots:true,
+                autoplay:true,
+                autoplaySpeed:1000,
+                smartSpeed:1500,
+                autoplayHoverPause:true
+            });
+        });
+    </script>
 @endsection
 @section('content')
 <div class="hero">
-    <div class="main d-flex justify-content-center pb-5">
-        <div class="center d-flex align-items-center align-content-center justify-content-center flex-column">
-            <div class="title text-center pb-1">
-                <span class="display-3 text-white">FRUIT MARKET</span>
+<div class="owl-carousel owl-theme" id="owl-demo">
+        <div class="item">
+            <img src="{{ asset('new/slogan.jpg') }}" alt="The Last of us">
+            <div class="slide-content">
+                <h1>Ely</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+              
             </div>
-            <div class="sub-title text-center pb-4 text-white">
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit!</span>
+        </div>
+        <div class="item">
+            <img src="{{ asset('new/slogan.jpg') }}" alt="GTA V">
+            <div class="slide-content">
+                <h1>pedro</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                
             </div>
-            <div>
-                <input type="text">
+        </div>
+        <div class="item">
+            <img src="{{ asset('new/slogan.jpg') }}" alt="Mirror Edge">
+            <div class="slide-content">
+                <h1>jose</h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+                
             </div>
         </div>
     </div>
 </div>
 
 <section>
-   <div class="categories mt-5 d-flex flex-column justify-content-center align-items-center">
+   <div class="categories">
        <div class="categories-title">
            <span>Categories</span>
        </div>
+       <hr class="line">
        <div class="categories-subtitle">
            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
        </div>
        <div class="categories-item container-fluid">
         <div class="row">
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/3.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success products-button">Success</button> -->
+            <!-- Producto -->
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-center">
+                <div class="thumbnail">
+                    <img src="{{ asset('new/recursos/1.PNG') }}" alt="img">
+                    <div class="caption">
+                        <a href="#"><span class="products-name text-white">Name products</span></a>
+                        <span class="products-price clearfix">121,0 $</span>
+                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>              
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/1.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/2.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/5.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/2.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/6.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/2.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/1.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-center justify-content-start align-items-center">
-                        <a href="#"><span class="products-name text-white pb-1">Name products</span></a>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>               
+            </div>    
         </div>
     </div>
-    <div class="categories-all d-flex justify-content-center mt-5">
-       <button type="button" class="btn btn-outline-dark text-white">Ver todos</button>
+    <div class="categories-all text-center">
+       <button type="button" class="btn-outline text-white">Ver todos</button>
    </div>
 </div>
 </section>
 <section>
-   <div class="slogan mt-5 d-flex justify-content-center align-items-center">
-       <div class="slogan-content d-flex flex-column align-items-center">
-        <span class="slogan-title">FRUITMARKET</span>
-        <span class="slogan-subtitle">QUALITY ASSURANCE</span>
-    </div>
-</div>
-</section>
-<section class="pb-5">
-   <div class="categories mt-5 d-flex flex-column justify-content-center align-items-center">
-       <div class="categories-title">
-           <span>Categories</span>
-       </div>
-       <div class="categories-subtitle">
-           <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
-       </div>
-       <div class="categories-item container-fluid">
-        <div class="row">
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/3.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/1.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/2.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/5.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/2.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/6.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/2.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3 col-sm-6 mt-4">
-                <div class="card products">
-                    <img src="{{ asset('new/recursos/1.PNG') }}" class="card-img-top products-img" alt="img-products">
-                    <div class="card-body d-flex flex-column align-self-start justify-content-start align-items-center">
-                        <span class="products-name text-white pb-1">Name products</span>
-                        <span class="products-price pb-1">121,0 $</span>
-                        <span class="products-info">Lorem ipsum dolor sit amet, consectetur.</span>
-                        <!-- <button type="button" class="btn btn-sm btn-success">Success</button> -->
-                    </div>
-                </div>
-            </div>               
+   <div class="slogan">
+       <div class="slogan-content text-center">
+            <span class="slogan-title clearfix">FRUITMARKET</span>
+            <span class="slogan-subtitle">QUALITY ASSURANCE</span>
         </div>
     </div>
-    <div class="categories-all d-flex justify-content-center mt-5">
-        <button type="button" class="btn btn-outline-dark text-white">Ver todos</button>
-    </div>
-</div>
 </section>
+
 
 
 
