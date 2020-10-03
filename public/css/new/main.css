@@ -68,6 +68,7 @@ text-decoration: none;
 
 /*list products*/
 .categories{
+    background-color: #141617;
     width: 100%;
     height: auto;
     display: flex;
@@ -156,6 +157,7 @@ text-decoration: none;
 
 /* SOBRESCRIBIENDO LOS ESTILOS DE BOOTSTRAP */
 .thumbnail {
+    background-color: #1b1c20;
     padding: 4px !important;
     border: 0px solid #ddd !important;
    
@@ -210,6 +212,8 @@ img {
     width: 70px;
     height: 2px !important;
     background-color: #ff722c !important; 
+    margin-top: 4px; 
+    margin-bottom: 4px;
 }
 
 
@@ -285,4 +289,8 @@ img {
 
 .owl-next {
     right: 1%;
+}
+
+.text-white{
+    color: #fff;
 }

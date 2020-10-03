@@ -1,7 +1,7 @@
 @extends('layouts.front.app')
 
 @section('content')
-    <hr>
+    
     <!-- Main content -->
     <section class="container content">
         <div class="row">
@@ -19,7 +19,7 @@
                         <input type="password" name="password" id="password" value="" class="form-control" placeholder="xxxxx">
                     </div>
                     <div class="row">
-                        <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+                        <button class="btn btn-primary btn-block btn-custom" type="submit">Entrar</button>
                     </div>
                 </form>
                 <div class="row"><hr>

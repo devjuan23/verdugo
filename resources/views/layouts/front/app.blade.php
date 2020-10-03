@@ -41,9 +41,10 @@
     @yield('og')
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @yield('css')
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 </head>
 <body>
-    <section>
+    <section class="background">
         <div class="hidden-xs">
             <div class="container">
                 <div class="clearfix"></div>
@@ -77,7 +78,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name') }}</a>
+                        <a class="navbar-brand text-white" href="{{ route('home') }}">{{ config('app.name') }}</a>
                     </div>
                     <div class="col-md-10">
                         @include('layouts.front.header-cart')
@@ -88,7 +89,6 @@
     </section>
     @yield('content')
     @include('layouts.front.footer')
-    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/front.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
     @yield('js')

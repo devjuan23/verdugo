@@ -14,35 +14,33 @@
 @endsection
 @section('js')
 <!-- Scripts propios de esta pagina -->
-<!-- <script src="{{ asset('js/new/bootstrap.min.js') }}"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Owl Carousel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <!-- Custom Javascript -->
-    <script>
-        $(document).ready(function () {
-            $(".owl-carousel").owlCarousel({
-                items:1,
-                loop:true,
-                nav:true,
-                dots:true,
-                autoplay:true,
-                autoplaySpeed:1000,
-                smartSpeed:1500,
-                autoplayHoverPause:true
-            });
+<!-- Owl Carousel -->
+<script src="{{ asset('js/new/owl.carousel.min.js') }}"></script>
+<!-- Custom Javascript -->
+<script>
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            items:1,
+            loop:true,
+            nav:true,
+            dots:true,
+            autoplay:true,
+            autoplaySpeed:1000,
+            smartSpeed:1500,
+            autoplayHoverPause:true
         });
-    </script>
+    });
+</script>
 @endsection
 @section('content')
 <div class="hero">
-<div class="owl-carousel owl-theme" id="owl-demo">
+    <div class="owl-carousel owl-theme" id="owl-demo">
         <div class="item">
             <img src="{{ asset('new/slogan.jpg') }}" alt="The Last of us">
             <div class="slide-content">
                 <h1>Ely</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
-              
+
             </div>
         </div>
         <div class="item">
@@ -65,15 +63,16 @@
 </div>
 
 <section>
-   <div class="categories">
-       <div class="categories-title">
-           <span>Categories</span>
-       </div>
-       <hr class="line">
-       <div class="categories-subtitle">
-           <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
-       </div>
-       <div class="categories-item container-fluid">
+@foreach($categories as $key => $category)
+ <div class="categories">
+     <div class="categories-title">
+         <span>{{ $category->name }}</span>
+     </div>
+     <hr class="line">
+     <div class="categories-subtitle">
+         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
+     </div>
+     <div class="categories-item container-fluid">
         <div class="row">
             <!-- Producto -->
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-center">
@@ -89,17 +88,20 @@
         </div>
     </div>
     <div class="categories-all text-center">
-       <button type="button" class="btn-outline text-white">Ver todos</button>
-   </div>
+     <a class="btn-outline text-white" href="{{ route('front.category.slug', $category->slug) }}">Ver mas categorias</a>
+ </div>
 </div>
+@endforeach
+
 </section>
 <section>
-   <div class="slogan">
-       <div class="slogan-content text-center">
-            <span class="slogan-title clearfix">FRUITMARKET</span>
-            <span class="slogan-subtitle">QUALITY ASSURANCE</span>
-        </div>
+ <div class="slogan">
+     <div class="slogan-content text-center">
+        <span class="slogan-title">FRUITMARKET</span>
+        <br>
+        <span class="slogan-subtitle">QUALITY ASSURANCE</span>
     </div>
+</div>
 </section>
 
 
