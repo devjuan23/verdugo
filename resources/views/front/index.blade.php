@@ -52,7 +52,6 @@
    </div>
 </div>
 @endforeach
-
 </section>
 <section>
    <div class="slogan">
