@@ -52,18 +52,35 @@
     <div class="categories-all text-center">
        <a class="btn-outline text-white" href="{{ route('front.category.slug', $category->slug) }}">Ver mas categorias</a>
    </div>
-</div>
-@endforeach
-</section>
-<section>
-   <div class="slogan">
+   
+    
+        @if($key == 0)
+    <div class="slogan">
        <div class="slogan-content text-center">
         <span class="slogan-title">FRUITMARKET</span>
         <br>
         <span class="slogan-subtitle">QUALITY ASSURANCE</span>
+        </div>
     </div>
+    @endif 
+    
 </div>
+@endforeach
 </section>
+
+{{-- 
+    <section>
+<div class="slogan">
+       <div class="slogan-content text-center">
+        <span class="slogan-title">FRUITMARKET</span>
+        <br>
+        <span class="slogan-subtitle">QUALITY ASSURANCE</span>
+        </div>
+    </div>
+</section>
+
+--}}
+
 
 
 
