@@ -10,16 +10,36 @@
 @endsection
 
 @section('content')
+    <style>
+        .categories-item{
+        width: 80%;
+        margin-top: 30px;
+        }
+        .subtitle>p{
+            font-size:14px;
+            color: #c1c1c1;
+            font-family:'inter-light';
+            line-height: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 575.98px) {
+        .categories-item{
+            width: 100%;
+            margin-top: 30px;
+        }
+        }
+    </style>
     <div class="container">
-        <hr>
-        <div class="row">
-            <div class="category-top col-md-12">
-                <h2>{{ $category->name }}</h2>
-                {!! $category->description !!}
+      
+        <div class="row pt-2">
+            <div class="category-top col-md-12 text-center pt-2">
+                <h2 class="text-orange">{{ $category->name }}</h2>
+                <span class="subtitle">{!! $category->description !!}</span>
             </div>
         </div>
-        <hr>
-        <div class="col-md-3">
+        
+        <div class="col-md-3 col-sm-12 pt-2">
             @include('front.categories.sidebar-category')
         </div>
         <div class="new-product t100 home">
@@ -33,7 +53,7 @@
                 </div>
             </div>
             <hr>
-            <div class="container">
+            <div class="categories-item container">
                 @include('front.products.product-list', ['products' => $products])
             </div>
         </div>

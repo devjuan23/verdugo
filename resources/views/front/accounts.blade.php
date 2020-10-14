@@ -1,15 +1,38 @@
 @extends('layouts.front.app')
 
 @section('content')
+    <style>
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+            color: #ffffff;
+            cursor: default;
+            background-color: #ff722c;
+            border: 1px solid #ff722c;
+            border-bottom-color: transparent;
+        }  
+        
+        .nav > li > a:hover, .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #1b1c20;
+            color: #fff;
+        }
+        .nav-tabs {
+            border-bottom: 1px solid #ff722c;
+        }
+        .nav-tabs > li > a:hover {
+            color:#ffffff !important;
+        }
+        
+    </style>
+
     <!-- Main content -->
     <section class="container content">
-        <div class="row">
+        <div class="row pt-2">
             <div class="box-body">
                 @include('layouts.errors-and-messages')
             </div>
-            <div class="col-md-12">
-                <h2> <i class="fa fa-home"></i> Mi Cuenta</h2>
-                <hr>
+            <div class="col-md-12 pt-2">
+                <h4> <i class="fa fa-home"></i> Mi Cuenta</h4>
+                
             </div>
         </div>
         <div class="row">
@@ -17,9 +40,9 @@
                 <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" @if(request()->input('tab') == 'profile') class="active" @endif><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Perfil</a></li>
-                        <li role="presentation" @if(request()->input('tab') == 'orders') class="active" @endif><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab">Ordenes</a></li>
-                        <li role="presentation" @if(request()->input('tab') == 'address') class="active" @endif><a href="#address" aria-controls="address" role="tab" data-toggle="tab">Direcciones</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'profile') class="active" @endif><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" >Perfil</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'orders') class="active" @endif><a href="#orders" aria-controls="orders" role="tab" data-toggle="tab" >Ordenes</a></li>
+                        <li role="presentation" @if(request()->input('tab') == 'address') class="active" @endif><a href="#address" aria-controls="address" role="tab" data-toggle="tab" >Direcciones</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -109,13 +132,13 @@
                             </table>
                                 {{ $orders->links() }}
                             @else
-                                <p class="alert alert-warning">No hay Pedidos todavía <a href="{{ route('home') }}">Comprar Ahora!</a></p>
+                                <p class="alert alert-custom">No hay Pedidos todavía <a href="{{ route('home') }}">Comprar Ahora!</a></p>
                             @endif
                         </div>
                         <div role="tabpanel" class="tab-pane @if(request()->input('tab') == 'address')active @endif" id="address">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a href="{{ route('customer.address.create', auth()->user()->id) }}" class="btn btn-primary">Crear Dirección</a>
+                                    <a href="{{ route('customer.address.create', auth()->user()->id) }}" class="btn btn-orange">Crear Dirección</a>
                                 </div>
                             </div>
                             @if(!$addresses->isEmpty())
@@ -163,7 +186,7 @@
                                 </tbody>
                             </table>
                             @else
-                                <br /> <p class="alert alert-warning">No hay Direcciones todavía.</p>
+                                <br /> <p class="alert alert-custom">No hay Direcciones todavía.</p>
                             @endif
                         </div>
                     </div>

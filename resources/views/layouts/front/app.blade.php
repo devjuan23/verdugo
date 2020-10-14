@@ -40,6 +40,7 @@
     <meta property="og:url" content="{{ request()->url() }}"/>
     @yield('og')
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/new/font.css') }}" rel="stylesheet">
     @yield('css')
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 </head>

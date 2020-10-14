@@ -1,12 +1,12 @@
 @extends('layouts.front.app')
 
 @section('content')
-    <div class="container product-in-cart-list">
+    <div class="container product-in-cart-list pt-2">
         @if(!$products->isEmpty())
             <div class="row">
                 <div class="col-md-12">
-                    <ol class="breadcrumb">
-                        <li><a href="{{ route('home') }}"> <i class="fa fa-home"></i> Home</a></li>
+                    <ol class="breadcrumb bg-transparent">
+                        <li ><a href="{{ route('home') }}" class="text-orange"><i class="fa fa-home"></i> Home</a></li>
                         <li class="active">Carrito</li>
                     </ol>
                 </div>
@@ -23,17 +23,17 @@
                         @if(isset($addresses))
                             <div class="row">
                                 <div class="col-md-12">
-                                    <legend><i class="fa fa-home"></i> Addresses</legend>
+                                    <legend style="color: #fff;"><i class="fa fa-home"></i> Addresses</legend>
                                     <table class="table table-striped">
                                         <thead>
-                                            <th>Alias</th>
-                                            <th>Dirección</th>
-                                            <th>Dirección de Envio</th>
-                                            <th>Dirección de entrega</th>
+                                            <th class="text-orange">Alias</th>
+                                            <th class="text-orange">Dirección</th>
+                                            <th class="text-orange"><div class="hidden-sm hidden-xs">Dirección de</div> Envio</th>
+                                            <th class="text-orange"><div class="hidden-sm hidden-xs">Dirección de</div> entrega</th>
                                         </thead>
-                                        <tbody>
+                                        <tbody >
                                             @foreach($addresses as $key => $address)
-                                                <tr>
+                                                <tr class="bg-transparent">
                                                     <td>{{ $address->alias }}</td>
                                                     <td>
                                                         {{ $address->address_1 }} {{ $address->address_2 }} <br />
@@ -64,7 +64,7 @@
                                         </tbody>
                                         <tbody style="display: none" id="sameDeliveryAddressRow">
                                             @foreach($addresses as $key => $address)
-                                                <tr>
+                                                <tr class="bg-transparent">
                                                     <td>{{ $address->alias }}</td>
                                                     <td>
                                                         {{ $address->address_1 }} {{ $address->address_2 }} <br />
@@ -111,14 +111,14 @@
                         @endif
                         <div class="row">
                             <div class="col-md-12">
-                                <legend><i class="fa fa-credit-card"></i> Pagos</legend>
+                                <legend style="color: #fff;"><i class="fa fa-credit-card"></i> Pagos</legend>
                                 @if(isset($payments) && !empty($payments))
                                   <div class="col-md-12 table-responsive">
                                       <table class="table table-striped">
                                           <thead>
-                                          <th class="col-md-4">Nombre</th>
-                                          <th class="col-md-4">Descripcións</th>
-                                          <th class="col-md-4 text-right">Elige pago</th>
+                                          <th class="col-md-4 text-orange">Nombre</th>
+                                          <th class="col-md-4 text-orange">Descripcións</th>
+                                          <th class="col-md-4 text-right text-orange">Elige pago</th>
                                           </thead>
                                           <tbody>
                                           @foreach($payments as $payment)
@@ -128,23 +128,40 @@
                                       </table>
                                   </div>
                                 @else
-                                    <p class="alert alert-danger">No se ha establecido ningún método de pago.</p>
+                                    <p class="alert alert-custom">No se ha establecido ningún método de pago.</p>
                                 @endif
                             </div>
                         </div>
                     @else
-                        <p class="alert alert-danger"><a href="{{ route('customer.address.create', [$customer->id]) }}">No se encontró la dirección. Primero debe crear una dirección aquí.</a></p>
+                        <p class="alert alert-custom"><a href="{{ route('customer.address.create', [$customer->id]) }}">No se encontró la dirección. Primero debe crear una dirección aquí.</a></p>
                     @endif
                 </div>
             </div>
         @else
             <div class="row">
                 <div class="col-md-12">
-                    <p class="alert alert-warning">No hay productos en el carrito todavía. <a href="{{ route('home') }}">Mostrar Ahora!</a></p>
+                    <p class="alert alert-custom text-orange">No hay productos en el carrito todavía. <a href="{{ route('home') }}">Mostrar Ahora!</a></p>
                 </div>
             </div>
         @endif
     </div>
+@endsection
+@section('css')
+    <style type="text/css">
+        .product-description {
+            padding: 10px 0;
+        }
+        .product-description p {
+            line-height: 18px;
+            font-size: 14px;
+        }
+        .img-thumbnail{
+            height:100px;
+        }     
+        .table-responsive {
+            border:none !important;
+        }
+    </style>
 @endsection
 @section('js')
     <script type="text/javascript">

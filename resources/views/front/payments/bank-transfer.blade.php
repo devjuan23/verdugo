@@ -1,12 +1,12 @@
-<tr>
+<tr class="bg-transparent">
     <td>
         @if(isset($payment['name']))
             {{ ucwords($payment['name']) }}
         @else
-            <p class="alert alert-danger">Necesitas tener <strong>nombre</strong> clave en tu configuración</p>
+            <p class="alert alert-custom">Necesitas tener <strong>nombre</strong> clave en tu configuración</p>
         @endif
     </td>
-    <td>
+    <td class="hidden-xs">
         @if(isset($payment['description']))
             {{ $payment['description'] }}
         @endif
@@ -16,7 +16,7 @@
             <input type="hidden" class="billing_address" name="billing_address" value="">
             <input type="hidden" class="rate" name="rate" value="">
             <input type="hidden" name="shipment_obj_id" value="{{ $shipment_object_id }}">
-            <button type="submit" class="btn btn-warning pull-right">Pagar con {{ ucwords($payment['name']) }} <i class="fa fa-bank"></i></button>
+            <button type="submit" class="btn btn-orange pull-right">Pagar con {{ ucwords($payment['name']) }} <i class="fa fa-bank"></i></button>
         </form>
     </td>
 

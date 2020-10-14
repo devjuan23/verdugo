@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6">
-        <ul id="thumbnails" class="col-md-4 list-unstyled">
+        <ul id="thumbnails" class="col-md-4 col-sm-4 hidden-xs list-unstyled">
             <li>
                 <a href="javascript: void(0)">
                     @if(isset($product->cover))
@@ -26,7 +26,7 @@
                 @endforeach
             @endif
         </ul>
-        <figure class="text-center product-cover-wrap col-md-8">
+        <figure class="text-center product-cover-wrap col-md-8 col-sm-8 col-xs-12">
             @if(isset($product->cover))
                 <img id="main-image" class="product-cover img-responsive img-responsives img-responsivet"
                      src="{{ asset("storage/$product->cover") }}?w=400"
@@ -38,9 +38,9 @@
         </figure>
     </div>
     <div class="col-md-6">
-        <div class="product-description">
+        <div class="product-description pt-2">
             <h1>{{ $product->name }}
-                <small>{{ config('cart.currency') }} {{ $product->price }}</small>
+                <small class="text-orange">{{ config('cart.currency') }} {{ $product->price }}</small>
             </h1>
             <div class="description">{!! $product->description !!}</div>
             <div class="excerpt">
@@ -68,17 +68,22 @@
                                 </select>
                             </div><hr>
                         @endif
-                        <div class="form-group">
-                            <input type="text"
-                                   class="form-control"
-                                   name="quantity"
-                                   id="quantity"
-                                   placeholder="Quantity"
-                                   value="{{ old('quantity') }}" />
-                            <input type="hidden" name="product" value="{{ $product->id }}" />
+                        <div class="row">
+                            <div class="form-group col-sm-2 col-sm-offset-4 col-xs-3 col-xs-offset-2 col-md-2 col-md-offset-4" >
+                                <input type="text"
+                                    class="form-control"
+                                    name="quantity"
+                                    id="quantity"
+                                    style="width: 100px;"
+                                    placeholder="Quantity"
+                                    value="{{ old('quantity') }}" />
+                                <input type="hidden" name="product" value="{{ $product->id }}" />
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-6 col-md-5 ">
+                                <button type="submit" class="btn btn-warning product-btn btn-orange"><i class="fa fa-cart-plus"></i> Add to cart
+                                </button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-warning product-btn"><i class="fa fa-cart-plus"></i> Add to cart
-                        </button>
                     </form>
                 </div>
             </div>
@@ -97,4 +102,11 @@
             });
         });
     </script>
+@endsection
+@section('css')
+<style>
+    .product {
+        height: auto !important;
+    }
+</style>
 @endsection

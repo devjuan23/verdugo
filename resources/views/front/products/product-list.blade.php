@@ -10,6 +10,7 @@ border: none;
 .products-name{
     font-family: 'inter-medium';
     font-size: 14px;
+    color: #fff;
 }
 .products-price{
     font-family: 'inter-medium';
@@ -64,7 +65,7 @@ img {
 @if(!empty($products) && !collect($products)->isEmpty())
     <div class="row">
         @foreach($products as $product)
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 text-center">
                 <div class="thumbnail single-product">
                     <div class="product-overlay">
                         <div class="vcenter">

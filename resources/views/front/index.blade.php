@@ -8,7 +8,6 @@
 <!-- Estilos propios de esta pagina -->
 <!-- <link href="{{ asset('css/new/bootstrap.min.css') }}" rel="stylesheet"> -->
 <link href="{{ asset('css/new/main.css') }}" rel="stylesheet">
-<link href="{{ asset('fonts/new/font.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 @endsection
@@ -41,6 +40,9 @@
            <span>{{ $category->name }}</span>
        </div>
        <hr class="line">
+       <div class="categories-subtitle">
+            <span>{!! $category->description !!}</span>
+       </div>
        <!-- <div class="categories-subtitle">
            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex optio vitae nulla earum!</span>
        </div> -->

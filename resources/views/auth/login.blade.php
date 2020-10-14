@@ -1,18 +1,7 @@
 @extends('layouts.front.app')
 
 @section('content')
-    <style>
-        .btn-orange{
-            background-color: #ff722c;
-            border: 1px solid #ff722c;
-            color: #fff;
-        }
-        .btn-orange:hover{
-            background-color: #fff;
-            border: 1px solid #ff722c;
-            color: #ff722c;
-        }
-    </style>
+    
     <!-- Main content -->
     <section class="container content">
         <div class="col-md-12">@include('layouts.errors-and-messages')</div>

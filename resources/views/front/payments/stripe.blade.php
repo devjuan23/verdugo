@@ -1,9 +1,9 @@
-<tr>
+<tr class="bg-transparent">
     <td>
         @if(isset($payment['name']))
             {{ ucwords($payment['name']) }}
         @else
-            <p class="alert alert-danger">Necesitas tener <strong>nombre</strong> clave en tu configuración</p>
+            <p class="alert alert-custom">Necesitas tener <strong>nombre</strong> clave en tu configuración</p>
         @endif
     </td>
     <td>

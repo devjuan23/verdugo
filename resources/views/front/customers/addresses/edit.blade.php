@@ -1,10 +1,30 @@
 @extends('layouts.front.app')
 
 @section('content')
+<style>
+    .select2-container--default .select2-selection--single {
+        background-color: #ff722c;
+        border: 1px solid #ff722c;
+        border-radius: 4px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #fff;
+    }
+    .select2-results__option[aria-selected] {
+        background-color: #ff722c;
+    }
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: #ffffff;
+        color: #ff722c;
+    }
+    .select2-container .select2-selection--single {
+        height: 34px;
+    }
+</style>
     <!-- Main content -->
     <section class="container content">
         @include('layouts.errors-and-messages')
-        <div class="box">
+        <div class="box pt-2">
             <form action="{{ route('customer.address.update', [$customer->id, $address->id]) }}" method="post" class="form" enctype="multipart/form-data">
                 <input type="hidden" name="status" value="1">
                 <input type="hidden" id="address_country_id" value="{{ $address->country_id }}">
@@ -12,44 +32,58 @@
                 <input type="hidden" id="address_state_code" value="{{ $address->state_code }}">
                 <input type="hidden" id="address_city" value="{{ $address->city }}">
                 <input type="hidden" name="_method" value="put">
-                <div class="box-body">
+                <div class="box-body pt-2">
                     {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="alias">Alias <span class="text-danger">*</span></label>
-                        <input type="text" name="alias" id="alias" placeholder="Home or Office" class="form-control" value="{{ old('alias') ?? $address->alias }}">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="alias">Alias <span class="text-danger">*</span></label>
+                            <input type="text" name="alias" id="alias" placeholder="Home or Office" class="form-control" value="{{ old('alias') ?? $address->alias }}">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="address_1">Dirección 1 <span class="text-danger">*</span></label>
-                        <input type="text" name="address_1" id="address_1" placeholder="Address 1" class="form-control" value="{{ old('address_1') ?? $address->address_1 }}">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="address_1">Dirección 1 <span class="text-danger">*</span></label>
+                            <input type="text" name="address_1" id="address_1" placeholder="Address 1" class="form-control" value="{{ old('address_1') ?? $address->address_1 }}">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="address_2">Dirección 2 </label>
-                        <input type="text" name="address_2" id="address_2" placeholder="Address 2" class="form-control" value="{{ old('address_2') ?? $address->address_2 }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="country_id">País </label>
-                        <select name="country_id" id="country_id" class="form-control select2">
-                            @foreach($countries as $country)
-                                <option @if($address->country_id == $country->id) selected="selected" @endif value="{{ $country->id }}">{{ $country->name }}</option>
-                            @endforeach
-                        </select>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="address_2">Dirección 2 </label>
+                            <input type="text" name="address_2" id="address_2" placeholder="Address 2" class="form-control" value="{{ old('address_2') ?? $address->address_2 }}">
+                        </div>
+                    </div>  
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="country_id">País </label>
+                            <select name="country_id" id="country_id" class="form-control select2">
+                                @foreach($countries as $country)
+                                    <option @if($address->country_id == $country->id) selected="selected" @endif value="{{ $country->id }}">{{ $country->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     <div id="provinces" class="form-group" style="display: none;"></div>
                     <div id="cities" class="form-group" style="display: none;"></div>
-                    <div class="form-group">
-                        <label for="zip">Código Postal</label>
-                        <input type="text" name="zip" id="zip" placeholder="Zip code" class="form-control" value="{{ old('zip') ?? $address->zip }}">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="zip">Código Postal</label>
+                            <input type="text" name="zip" id="zip" placeholder="Zip code" class="form-control" value="{{ old('zip') ?? $address->zip }}">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Teléfono </label>
-                        <input type="text" name="phone" id="phone" placeholder="Phone number" class="form-control" value="{{ old('phone') ?? $address->phone }}">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="phone">Teléfono </label>
+                            <input type="text" name="phone" id="phone" placeholder="Phone number" class="form-control" value="{{ old('phone') ?? $address->phone }}">
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    <div class="btn-group">
-                        <a href="{{ route('accounts', ['tab' => 'address']) }}" class="btn btn-default">Atrás</a>
-                        <button type="submit" class="btn btn-primary">Actualizas</button>
+                    <div class="col-md-12 text-center pt-2">
+                        <div class="btn-group">
+                            <a href="{{ route('accounts', ['tab' => 'address']) }}" class="btn btn-default text-orange">Atrás</a>
+                            <button type="submit" class="btn btn-orange">Actualizar</button>
+                        </div>
                     </div>
                 </div>
             </form>

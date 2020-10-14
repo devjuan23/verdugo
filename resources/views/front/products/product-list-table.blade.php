@@ -5,17 +5,17 @@
         <div class="row hidden-xs hidden-sm" style="height: 40px;">
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"><b>Cover</b></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-orange text-center"><b>Cover</b></div>
                 </div>
             </div>
 
             <div class="col-lg-10 col-md-10 col-sm-8 col-xs-8">
                 <div class="row">
-                    <div class="col-lg-5 col-md-5"><b>Nombre</b></div>
-                    <div class="col-lg-2 col-md-2"><b>Cantidad</b></div>
-                    <div class="col-lg-1 col-md-1"><b>Quitar</b></div>
-                    <div class="col-lg-2 col-md-2"><b>Precio</b></div>
-                    <div class="col-lg-2 col-md-2"><b>Total</b></div>
+                    <div class="col-lg-5 col-md-5 text-orange text-center"><b>Nombre</b></div>
+                    <div class="col-lg-2 col-md-2 text-orange"><b>Cantidad</b></div>
+                    <div class="col-lg-1 col-md-1 text-orange"><b>Quitar</b></div>
+                    <div class="col-lg-2 col-md-2 text-orange"><b>Precio</b></div>
+                    <div class="col-lg-2 col-md-2 text-orange"><b>Total</b></div>
                 </div>
             </div>
         </div>
@@ -46,35 +46,37 @@
                                 </div>
                             @endif
                             <!-- <div class="product-description"> -->
+                            <div class="hidden-xs hidden-sm">
                                 {!! $cartItem->product->description !!}
+                            </div>
                             <!-- </div> -->
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-8">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-8">
                             <form action="{{ route('cart.update', $cartItem->rowId) }}" class="form-inline" method="post">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="put">
-                                <div class="input-group">
+                                <div class="input-group" style="width: 100px;">
                                     <input type="text" name="quantity" value="{{ $cartItem->qty }}" class="form-control input-sm" />
-                                    <span class="input-group-btn"><button class="btn btn-default btn-sm">Update</button></span>
+                                    <span class="input-group-btn"><button class="btn btn-orange btn-sm">Update</button></span>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-lg-1 col-md-1 col-sm-8 col-xs-4">
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-4">
                             <form action="{{ route('cart.destroy', $cartItem->rowId) }}" method="post">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="delete">
                                 <button onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
                             </form>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                             <span class="hidden-lg hidden-md"><small>Tax: </span>
                             {{config('cart.currency')}} {{ number_format(($cartItem->qty*$cartItem->tax), 2) }}</small>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
                             <span class="hidden-lg hidden-md"><small>Subtotal: </span>
                             {{config('cart.currency')}} {{ number_format($cartItem->price, 2) }}</small>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
                             <span class="hidden-lg hidden-md"><small>Total: </span>
                             {{config('cart.currency')}} {{ number_format(($cartItem->qty*$cartItem->price), 2) }}</small>
                         </div>

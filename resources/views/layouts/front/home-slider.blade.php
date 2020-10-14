@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="item">
-            <img src="{{ asset('new/slogan.jpg') }}" alt="GTA V">
+            <img src="{{ asset('new/slider.jpg') }}" alt="GTA V">
             <div class="slide-content">
                 <h1>pedro</h1>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>

@@ -1,4 +1,4 @@
-<ul class="nav sidebar-menu">
+<ul class="nav sidebar-menu pt-2">
     @foreach($categories as $category)
         @if($category->children()->count() > 0)
             <li>@include('layouts.front.category-sidebar-sub', ['subs' => $category->children])</li>

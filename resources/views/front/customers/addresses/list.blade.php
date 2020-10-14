@@ -44,8 +44,8 @@
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="delete">
                                         <div class="btn-group">
-                                            <a href="{{ route('admin.addresses.edit', $address->id) }}" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-sm"><i class="fa fa-times"></i> Delete</button>
+                                            <a href="{{ route('admin.addresses.edit', $address->id) }}" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-orange btn-sm"><i class="fa fa-times"></i> Delete</button>
                                         </div>
                                     </form>
                                 </td>
@@ -55,7 +55,7 @@
                     </table>
                         <a href="{{ route('accounts', ['tab' => 'profile']) }}" class="btn btn-default">Back to My Account</a>
                     @else
-                        <p class="alert alert-warning">No address created yet. <a href="{{ route('customer.address.create', auth()->id()) }}">Create</a></p>
+                        <p class="alert alert-custom">No address created yet. <a href="{{ route('customer.address.create', auth()->id()) }}">Create</a></p>
                     @endif
                 </div>
                 <!-- /.box-body -->
@@ -63,7 +63,7 @@
             <!-- /.box -->
         @else
             <div class="box">
-                <div class="box-body"><p class="alert alert-warning">No addresses found.</p></div>
+                <div class="box-body"><p class="alert alert-custom">No addresses found.</p></div>
             </div>
         @endif
     </section>
